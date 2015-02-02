@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='newsApp'>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Cognitio - Knowledge for your future</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
+        <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Timeline CSS -->
+        <link href="css/timeline.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+
+        <!-- Morris Charts CSS -->
+        <link href="bower_components/morrisjs/morris.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Navigation -->
+
+
+
+        <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Cognitio</a>
+                </div>
+                <!-- /.navbar-header -->
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            </li>
+                            <li><a href="subscribe.html"><i class="fa fa-plus-circle fa-fw"></i> Upgrade Plan</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>
+                <!-- /.navbar-top-links -->
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="news.html"><i class="fa fa-hacker-news fa-fw"></i> News</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-book fa-fw"></i> Money Management<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#"> CPF</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Budgeting</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Credit Management</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Investment Corner<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#"> Bonds</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Stocks</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Unit Trusts</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="floor.html"><i class="fa fa-dollar fa-fw"></i> Trading Floor</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-wechat fa-fw"></i> Forum</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+
+
+            <div id="page-wrapper" ng-controller="categoryCtrl">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 id='top' class="page-header">Daily News</h1>
+                    </div>
+                    <div class="col-lg-12">
+                        
+                        <label ng-repeat="(category, value) in categoryTypes">
+                            &nbsp;{{category}}:&nbsp; <input type="checkbox" ng-model='categoryTypes[category]'>  
+                        </label><br>
+                        <label ng-repeat="article in articles">
+                            &nbsp;{{article.region}}:&nbsp; <input type="checkbox" disabled> 
+                        </label>
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div ng-repeat="article in articles| categoryfilter:categoryTypes">
+                        <div class="col-lg-10">
+
+                            <h3 class='page-header'>
+                                <a target='_blank' href='{{article.url}}'>{{article.title}} </a>
+                                <small> by {{article.source}}</small>
+                            </h3>
+                            <div class='col-lg-2'>
+                                <p>
+                                    <img src="{{article.image}}" height='120' width='120'>
+                                </p>
+                            </div>
+                            <div class='col-lg-8'>
+
+                                <p>
+                                    {{article.description}}
+                                    <a target='_blank' href='{{article.url}}'> (more) </a>
+                                </p>
+                                <p>
+                                    <small>Categories:{{article.category}}</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+        <script>
+
+            var categoryModule = angular.module('newsApp', []);
+            categoryModule.controller('categoryCtrl', ['$scope', function($scope) {
+
+                    $scope.articles = [
+                        { "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR1WRnc32am6xKOpn5_Fdb6TX4Fz3HoZXMUhW7-s3CGNWIxmVhR", "source": "Reuters", "title": "European shares enjoy best month in over 3 years", "url": 'http://www.reuters.com/article/2015/01/30/markets-stocks-europe-idUSL6N0V94L820150130',
+                            "category": "Markets", "region": "Europe", "time": "Jan 30 2015, 12.48PM EST", "description": "PARIS, Jan 30 (Reuters) - European stocks dipped on Friday but posted their best monthly performance in over three years, lifted by hopes the European Central Bank's quantitative easing programme will revive the region's economic growth and corporate earnings will bounce."},
+                        {"image": "http://me-confidential.com/wp-content/uploads/2013/09/KSA-oil.jpg", "source": "The Business Times", "title": 'Oil prices fall on market relief over Saudi policy', "url": 'http://www.businesstimes.com.sg/energy-commodities/oil-prices-fall-on-market-relief-over-saudi-policy',
+                            "category": "Energy", "region": "Middle East", "time": "Jan 26 2015, 6.16PM +8 GMT", "description": "[LONDON] Oil prices declined on Monday, with US crude falling close to a nearly six-year low, as Saudi Arabia's new King Salman moved to assuage fears of an unstable transition and any policy change in the world's largest oil exporter."},
+                        {"image": "http://www.romania-insider.com/wp-content/uploads/2010/08/ford-fiesta-production.jpg", "source": "Bloomberg", "title": 'Ford Fourth-Quarter Profit Slumps 98%', "url": 'http://www.bloomberg.com/news/articles/2015-01-29/ford-profit-falls-less-than-estimated-on-slowed-pickup-output',
+                            "category": "Manufacturing", "region": "America", "time": "Jan 29 2015, 7.53AM ET", "description": "(Bloomberg) -- Ford Motor Co. beat analysts' estimates for the fourth quarter and said assembly of the aluminum-bodied F-150 is going 'extremely well', even as the second-biggest U.S. automaker grapples with losses in Europe and South America."},
+                        {"image": "http://www.gospelherald.com/data/images/full/7637/mh370.jpg", "source": "Channel NewsAsia", "title": 'Malaysia officially declares loss of MH370 an accident, 239 on board presumed dead', "url": 'http://www.channelnewsasia.com/news/asiapacific/malaysia-officially/1623664.html',
+                            "category": "Breaking", "region": "Asia", "time": "Jan 29 2015, 6.07PM +8 GMT", "description": "PUTRAJAYA: Malaysia's Department of Civil Aviation (DCA) on Thursday (Jan 29) formally declared missing flight MH370 to be an 'accident' and that all 239 passengers and crew aboard are presumed dead, a step that opens the door for compensation payments but is likely to hit  distraught relatives hard. "},
+                        {"image": "http://www.businesstimes.com.sg/sites/default/files/styles/article_img/public/image/2015/01/29/streu12.jpg?itok=U_SpE32N", "source": "The Business Times", "title": "Singapore DBS CEO among potential candidates for StanChart's top job", "url": 'http://www.businesstimes.com.sg/banking-finance/singapore-dbs-ceo-among-potential-candidates-for-stancharts-top-job',
+                            "category": "Banking", "region": "Singapore", "time": "Jan 28 2015, 7.53AM ET", "description": "[HONG KONG] Standard Chartered is seeking a leader with a tough-to-find mix of Asian experience and regulatory clout as it kicks off the search for a successor to CEO Peter Sands, investors, bankers and headhunters told Reuters."}
+                    ];
+                    $scope.categoryTypes = {Markets: true, Energy: true, Manufacturing: true, Breaking: true, Banking: true};
+
+                }]);
+            categoryModule.filter('categoryfilter', function() {
+                return function(input, filter) {
+                    var result = [];
+                    var alt = [];
+
+                    angular.forEach(input, function(article) {
+                        if (filter[article.category])
+                            result.push(article);
+                        else
+                            alt.push(article);
+                    });
+                    if (!angular.equals(result.length, 0))
+                        return result;
+                    else
+                        return alt;
+                };
+            });
+
+        </script>
+
+        <!-- jQuery -->
+        <div class="col-lg-10"><p class="pull-right"><a href="#top">Back to Top</a></p>
+        </div>
+        <div class="col-lg-12"><p><center>MoneyMind Inc does not claim ownership over the content being published here.</center></p></div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="bower_components/raphael/raphael-min.js"></script>
+    <script src="bower_components/morrisjs/morris.min.js"></script>
+    <script src="js/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
