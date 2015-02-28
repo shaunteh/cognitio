@@ -1,3 +1,16 @@
+<?php
+// I'm using a separate config file. so pull in those config values
+require("include/config.inc.php");
+
+// pull in the file with the database class
+require("include/Database.singleton.php");
+
+// create the $db singleton object
+$db = Database::obtain(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+
+// connect to the server
+$db->connect();
+?>
 <!DOCTYPE html>
 <html lang="en" ng-app='newsApp' ng-strict-di>
 
@@ -200,49 +213,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+										<?php
+										$rows=$db->query("SELECT * FROM prices WHERE symbol='D05.SI' AND date <= '27-02-2015' and date>= '10-02-2015'");
+										while ($row = $db->fetch($rows)) 
+										{
+										?>
                                         <tr>
-                                            <td>27-02-2015</td>
-                                            <td>19.57</td>
-                                            <td>19.57</td>
-                                            <td>5060.6</td>
+                                            <td><?php echo date('Y-m-d',strtotime($row['date']));?></td>
+                                            <td><?php echo $row['open'];?></td>
+                                            <td><?php echo $row['close'];?></td>
+                                            <td><?php echo $row['volume'];?></td>
                                             <td></td>
                                             <td>
-												<?php
-												?>
 											</td>
                                         </tr>                                        
-										<tr>
-                                            <td>26-02-2015</td>
-                                            <td>19.76</td>
-                                            <td>19.69</td>
-                                            <td>3167.2</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>25-02-2015</td>
-                                            <td>19.83</td>
-                                            <td>19.82</td>
-                                            <td>3441.5</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>24-02-2015</td>
-                                            <td>19.78</td>
-                                            <td>19.77</td>
-                                            <td>4133.1</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>23-02-2015</td>
-                                            <td>19.95</td>
-                                            <td>19.65</td>
-                                            <td>5817.7</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+										
+										<?php
+										}
+										
+										?>
                                     </tbody>
                                 </table>
                             </div>
@@ -288,3 +277,6 @@
     </body>
 
 </html>
+<?php
+$db->close();
+?>
