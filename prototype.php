@@ -162,14 +162,14 @@ $db->connect();
 							</div>
 							<div class="panel-body">
 
-										<form role="form">
+										<form role="form" method="POST">
 											<div class="form-group">
 												<label>Start Date</label>
-												<input name="startdate" class="form-control" placeholder="Enter start date (eg: 20-02-2015)">
+												<input name="startdate" class="form-control" value="<?php echo date('d-m-Y', strtotime("-1 month"));?>">
 											</div>
 											<div class="form-group">
 												<label>End Date</label>
-												<input name="enddate" class="form-control" placeholder="Enter end date (eg: 28-02-2015)">
+												<input name="enddate" class="form-control" value="<?php echo date('d-m-Y');?>">
 											</div>
 											<div class="form-group">
 												<label>Company</label>
@@ -179,7 +179,7 @@ $db->connect();
 											</div>
 											<div class="form-group">
 												<label>Enter Keyword(s)</label>
-												<input name="keyword" class="form-control" placeholder="Enter keywords">
+												<input name="keyword" class="form-control" placeholder="Enter keywords" value="<?php echo $_POST['keyword'];?>">
 											</div>
 											
 											<button type="submit" class="btn btn-default">Search</button>
@@ -193,6 +193,10 @@ $db->connect();
 					<!-- /.col-lg-16 -->
 				</div>
 				<!-- /.row -->
+				<?php
+				//If this is a POST
+				if (isset($_POST['startdate'])) {
+				?>
 				<!-- /.row -->
 				<div class="row">
 					<div class="col-lg-12">
@@ -207,6 +211,7 @@ $db->connect();
                                             <th>Date</th>
                                             <th>Open</th>
                                             <th>Close</th>
+                                            <th>Difference</th>
                                             <th>Volume (K)</th>
                                             <th>Strongest Keyword(s)</th>
                                             <th>News Articles</th>
@@ -214,17 +219,29 @@ $db->connect();
                                     </thead>
                                     <tbody>
 										<?php
-										$rows=$db->query("SELECT * FROM prices WHERE symbol='D05.SI' AND date <= '27-02-2015' and date>= '10-02-2015'");
+										$rows=$db->query("SELECT * FROM prices WHERE symbol='D05.SI' AND date <= '".date('Y-m-d',strtotime($_POST['enddate']))."' and date>= '".date('Y-m-d',strtotime($_POST['startdate']))."'");
 										while ($row = $db->fetch($rows)) 
 										{
 										?>
                                         <tr>
                                             <td><?php echo date('Y-m-d',strtotime($row['date']));?></td>
-                                            <td><?php echo $row['open'];?></td>
-                                            <td><?php echo $row['close'];?></td>
+                                            <td>S$<?php echo $row['open'];?></td>
+                                            <td>S$<?php echo $row['close'];?></td>
+                                            <td><strong><p class="<?php echo (round($row['close']-$row['open'],2) >= 0 ? "text-success" : "text-danger") ?>">S$<?php echo round($row['close']-$row['open'],2);?></p></strong></td>
                                             <td><?php echo $row['volume'];?></td>
                                             <td></td>
                                             <td>
+											<ol>
+											<?php
+												$articles=$db->query("SELECT * from thread WHERE published >= '".date('Y-m-d',strtotime($row['date']))." 00:00:00' AND published <= '".date('Y-m-d',strtotime($row['date']))." 23:59:59' AND text LIKE '%".$_POST['keyword']."%'");
+												while ($article = $db->fetch($articles)) 
+												{
+													?>
+													<li> [<?php echo $article['site_full']; ?>] <a href="<?php echo $article['url']; ?>"><?php echo $article['title_full']; ?></a></li>
+													<?php
+												}
+											?>
+											</ol>
 											</td>
                                         </tr>                                        
 										
@@ -242,7 +259,9 @@ $db->connect();
 					</div>
 				</div>
 				<!-- /.row -->
-				
+				<?php
+				} //end of if (isset($_POST['startdate'])) {
+				?>
             </div>
             <!-- /#page-wrapper -->
 
