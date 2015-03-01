@@ -84,37 +84,7 @@
                         <ul class="nav" id="side-menu">
                             <li>
                                 <a href="news.html"><i class="fa fa-hacker-news fa-fw"></i> News</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-book fa-fw"></i> Money Management<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#"> CPF</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Budgeting</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Credit Management</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Investment Corner<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#"> Bonds</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Stocks</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Unit Trusts</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
+                            </li>                          
                             <li>
                                 <a href="floor.html"><i class="fa fa-dollar fa-fw"></i> Trading Floor</a>
                             </li>
@@ -133,56 +103,56 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 id='top' class="page-header">News Article Analysis</h1>
-						
+
                     </div>
                     <div class="col-lg-12">
-						
+
                     </div>
                 </div>
                 <!-- /.row -->
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								Search Parameters
-							</div>
-							<div class="panel-body">
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Search Parameters
+                            </div>
+                            <div class="panel-body">
 
-										<form role="form">
-											<div class="form-group">
-												<label>Start Date</label>
-												<input name="startdate" class="form-control" placeholder="Enter start date (eg: 20-02-2015)">
-											</div>
-											<div class="form-group">
-												<label>End Date</label>
-												<input name="enddate" class="form-control" placeholder="Enter end date (eg: 28-02-2015)">
-											</div>
-											<div class="form-group">
-												<label>Company</label>
-												<select name="company" class="form-control">
-													<option value="D05.SI">DBS Group Pte Ltd</option>
-												</select>
-											</div>
-											<div class="form-group">
-												<label>Enter Keyword(s)</label>
-												<input name="keyword" class="form-control" placeholder="Enter keywords">
-											</div>
-											
-											<button type="submit" class="btn btn-default">Search</button>
-										</form>
-							 <!-- /.row (nested) -->
-							</div>
-							<!-- /.panel-body -->
-						</div>
-						<!-- /.panel -->
-					</div>
-					<!-- /.col-lg-16 -->
-				</div>
-				<!-- /.row -->
-				<!-- /.row -->
-				<div class="row">
-					<div class="col-lg-12">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>Start Date</label>
+                                        <input name="startdate" class="form-control" placeholder="Enter start date (eg: 20-02-2015)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>End Date</label>
+                                        <input name="enddate" class="form-control" placeholder="Enter end date (eg: 28-02-2015)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Company</label>
+                                        <select name="company" class="form-control">
+                                            <option value="D05.SI">DBS Group Pte Ltd</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Enter Keyword(s)</label>
+                                        <input name="keyword" class="form-control" placeholder="Enter keywords">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default">Search</button>
+                                </form>
+                                <!-- /.row (nested) -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-16 -->
+                </div>
+                <!-- /.row -->
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="panel-heading">
                         </div>
                         <!-- /.panel-heading -->
@@ -208,7 +178,7 @@
                                             <td></td>
                                             <td></td>
                                         </tr>                                        
-										<tr>
+                                        <tr>
                                             <td>26-02-2015</td>
                                             <td>19.76</td>
                                             <td>19.69</td>
@@ -246,11 +216,11 @@
                             <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->
-					
-					</div>
-				</div>
-				<!-- /.row -->
-				
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
             </div>
             <!-- /#page-wrapper -->
 
@@ -279,7 +249,23 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="dist/js/sb-admin-2.js"></script>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
+            ga('create', 'UA-60245828-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
 
 
     </body>
