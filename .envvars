@@ -1,0 +1,9 @@
+export ENV=debug
+export PAYPAL_MODE=sandbox
+export PAYPAL_CLIENT_ID=AWn5bY_EbqxiDIDlULiRHKyLt6TJyzSvDV4jd6JV-AtovO8qt9n3SVOKVDgFBVW443XCRAmdT_VYHOsA
+export PAYPAL_CLIENT_SECRET=EJuEDjWxoL2GzXTKZ7GCPH0JeTOna-mfpD-OU-v81G8ZN1o7D35vHdjB3u0OdSNiMQpqGWpgilfabZq8
+export FIREBASE_TOKEN=bsgL1gji2HJaE5V7O9cIoQGUmCxdrWAgcz8DNG3j
+export FIREBASE_URL=https://shaunteh.firebaseio.com/
+export APP_BASE_URL=http://cognitio.herokuapp.com/
+export APP_PAYPAL_SUCCESS_CALLBACK=/payment/execute/
+export APP_PAYPAL_CANCEL_CALLBACK=/payment/cancel/
