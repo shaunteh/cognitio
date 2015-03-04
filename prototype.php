@@ -76,12 +76,9 @@ $db->connect();
                             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                            </li>
-                            <li><a href="subscribe.html"><i class="fa fa-plus-circle fa-fw"></i> Upgrade Plan</a>
-                            </li>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+                            <li><a href="subscribe.html"><i class="fa fa-plus-circle fa-fw"></i> Upgrade Plan</a></li>
                             <li class="divider"></li>
                             <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
@@ -99,40 +96,10 @@ $db->connect();
                                 <a href="news.html"><i class="fa fa-hacker-news fa-fw"></i> News</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-book fa-fw"></i> Money Management<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#"> CPF</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Budgeting</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Credit Management</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
+                                <a href="prototype.html"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Investment Corner<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#"> Bonds</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Stocks</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Unit Trusts</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="floor.html"><i class="fa fa-dollar fa-fw"></i> Trading Floor</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-wechat fa-fw"></i> Forum</a>
+                                <a href="feedback.html"><i class="fa fa-comments fa-fw"></i> Feedback</a>
                             </li>
                         </ul>
                     </div>
@@ -174,7 +141,13 @@ $db->connect();
 											<div class="form-group">
 												<label>Company</label>
 												<select name="company" class="form-control">
-													<option value="D05.SI">DBS Group Pte Ltd</option>
+													<option value="">Please select a company</option>
+													<option value="D05.SI" <?php if ($_POST['company'] == "D05.SI") echo "selected"; ?>>DBS Group</option>
+													<option value="O39.SI" <?php if ($_POST['company'] == "O39.SI") echo "selected"; ?>>OCBC Group</option>
+													<option value="U11.SI" <?php if ($_POST['company'] == "U11.SI") echo "selected"; ?>>UOB Group</option>
+													<option value="AK3.SI" <?php if ($_POST['company'] == "AK3.SI") echo "selected"; ?>>Swiber</option>
+													<option value="5DN.SI" <?php if ($_POST['company'] == "5DN.SI") echo "selected"; ?>>Ezra</option>
+													<option value="5ME.SI" <?php if ($_POST['company'] == "5ME.SI") echo "selected"; ?>>Ezion Holdings</option>
 												</select>
 											</div>
 											<div class="form-group">
@@ -195,7 +168,7 @@ $db->connect();
 				<!-- /.row -->
 				<?php
 				//If this is a POST
-				if (isset($_POST['startdate'])) {
+				if (isset($_POST['company']) && strlen($_POST['company'])) {
 				?>
 				<!-- /.row -->
 				<div class="row">
@@ -211,15 +184,15 @@ $db->connect();
                                             <th>Date</th>
                                             <th>Open</th>
                                             <th>Close</th>
-                                            <th>Difference</th>
+                                            <th width="120">Difference</th>
                                             <th>Volume (K)</th>
-                                            <th>Strongest Keyword(s)</th>
+                                            <th>Keyword Count</th>
                                             <th>News Articles</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 										<?php
-										$rows=$db->query("SELECT * FROM prices WHERE symbol='D05.SI' AND date <= '".date('Y-m-d',strtotime($_POST['enddate']))."' and date>= '".date('Y-m-d',strtotime($_POST['startdate']))."'");
+										$rows=$db->query("SELECT * FROM prices WHERE symbol='".$_POST['company']."' AND date <= '".date('Y-m-d',strtotime($_POST['enddate']))."' and date>= '".date('Y-m-d',strtotime($_POST['startdate']))."' ORDER by date DESC");
 										while ($row = $db->fetch($rows)) 
 										{
 										?>
@@ -227,17 +200,36 @@ $db->connect();
                                             <td><?php echo date('Y-m-d',strtotime($row['date']));?></td>
                                             <td>S$<?php echo $row['open'];?></td>
                                             <td>S$<?php echo $row['close'];?></td>
-                                            <td><strong><p class="<?php echo (round($row['close']-$row['open'],2) >= 0 ? "text-success" : "text-danger") ?>">S$<?php echo round($row['close']-$row['open'],2);?></p></strong></td>
+                                            <td>
+												<strong>
+												<?php 
+												$percentage=round(($row['close']-$row['open'])/$row['open'],5);
+												$difference=round($row['close']-$row['open'],2);
+												
+												if ($difference >= 0) {
+													?>
+													<div class="alert alert-success"> <?php echo $difference;?> <br> (<p class="fa fa-long-arrow-down"> <?php echo $percentage; ?>%</p>)</div>
+													<?php
+												} else {
+													?>
+													<div class="alert alert-danger"> <?php echo $difference;?> <br> (<p class="fa fa-long-arrow-up"> <?php echo $percentage; ?>%</p>)</div>
+													<?php
+												}
+												?>
+												</strong>
+											</td>
                                             <td><?php echo $row['volume'];?></td>
                                             <td></td>
                                             <td>
 											<ol>
 											<?php
-												$articles=$db->query("SELECT * from thread WHERE published >= '".date('Y-m-d',strtotime($row['date']))." 00:00:00' AND published <= '".date('Y-m-d',strtotime($row['date']))." 23:59:59' AND text LIKE '%".$_POST['keyword']."%'");
-												while ($article = $db->fetch($articles)) 
+												$articles=$db->query("SELECT * from thread WHERE published >= '".date('Y-m-d',strtotime($row['date']))." 00:00:00' AND published <= '".date('Y-m-d',strtotime($row['date']))." 23:59:59' AND text LIKE '%".$_POST['keyword']."%' ORDER by importance DESC");
+												$rank=0;
+												while ($article = $db->fetch($articles)) 												
 												{
+													$rank++;
 													?>
-													<li> [<?php echo $article['site_full']; ?>] <a href="<?php echo $article['url']; ?>"><?php echo $article['title_full']; ?></a></li>
+													<li> [<?php echo $article['site_full']; ?>] <a href="<?php echo $article['url']; ?>"><?php echo $article['title_full']; ?></a> <span class="text-success"><strong>[Rank <?php echo $rank;?> | Rating: <?php echo $article['importance'];?>% ]</strong></p></li>
 													<?php
 												}
 											?>
