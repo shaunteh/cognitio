@@ -28,6 +28,7 @@
 
         <!-- Custom Fonts -->
         <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/main.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,13 +36,16 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <!-- Navigation -->\
-        <link rel="stylesheet" href="css/main.css">
+        <!-- Navigation -->
+
+
+
+
     </head>
 
     <body>
-
         <div id="wrapper">
+            <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -50,7 +54,6 @@
                     <a class="navbar-brand" href="index.html">Cognitio</a>
                 </div>
                 <!-- /.navbar-header -->
-
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
                         <!-- /.dropdown -->
@@ -59,14 +62,11 @@
                             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                            </li>
-                            <li><a href="subscribe.html"><i class="fa fa-plus-circle fa-fw"></i> Upgrade Plan</a>
-                            </li>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+                            <li><a href="subscribe.html"><i class="fa fa-plus-circle fa-fw"></i> Upgrade Plan</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -74,7 +74,6 @@
                     <!-- /.dropdown -->
                 </ul>
                 <!-- /.navbar-top-links -->
-
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
@@ -82,10 +81,10 @@
                                 <a href="news.html"><i class="fa fa-hacker-news fa-fw"></i> News</a>
                             </li>
                             <li>
-                                <a href="floor.html"><i class="fa fa-dollar fa-fw"></i> Trading Floor</a>
+                                <a href="prototype.html"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-wechat fa-fw"></i> Forum</a>
+                                <a href="feedback.html"><i class="fa fa-comments fa-fw"></i> Feedback</a>
                             </li>
                         </ul>
                     </div>
@@ -93,109 +92,95 @@
                 </div>
                 <!-- /.navbar-static-side -->
             </nav>
-
-
             <div id="page-wrapper">
-
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"> Subscription Packages
-                        </h1>
-                    </div>
+                        <h1 class="page-header"> Subscription Packages</h1>
+                        <div class="col-lg-4">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <strong>Basic</strong>
+                                </div>
+                                <div class="panel-body">
+                                    <h3 class="panel-title price">$0
+                                        <span class="price-cents">00</span>
+                                        <span class="price-month">/mth</span>
+                                    </h3>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Personalize Your News</li>
+                                    <li class="list-group-item"><a href="#">Sign up now!</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><div class="col-lg-4">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <strong>Premium</strong>
+                                    <span class="label label-success"> Best Value! </span>
+                                </div>
+                                <div class="panel-body">
+                                    <h3 class="panel-title price">$30
+                                        <span class="price-cents">00</span>
+                                        <span class="price-month">/mth</span>
+                                    </h3>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Personalize Your News</li>
+                                    <li class="list-group-item">Daily Price Movements</li>
+                                    <li class="list-group-item">Company Specific Keyword-Article Analysis </li>
+                                    <li class="list-group-item">Historical Analysis Keyword-Article Analysis</li>    
+                                    <li class="list-group-item">
+                                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                            <input type="hidden" name="cmd" value="_s-xclick">
+                                            <input type="hidden" name="hosted_button_id" value="WZLF9QEMKX5Z6">
+                                            <input type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                                            <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-heading">
+                                    <strong>Professional</strong>
+                                    <span class="label label-danger"> Recommended! </span>
+                                </div>
+                                <div class="panel-body">
+                                    <h3 class="panel-title price">$90
+                                        <span class="price-cents">00</span>
+                                        <span class="price-month">/mth</span>
+                                    </h3>
 
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Personalize Your News</li>
+                                    <li class="list-group-item">Daily Price Movements</li>
+                                    <li class="list-group-item">Company Specific Keyword-Article Analysis </li>
+                                    <li class="list-group-item">Industry Specific Keyword-Article Analysis </li>
+                                    <li class="list-group-item">Market-wide Keyword-Article Analysis </li>
+                                    <li class="list-group-item">Historical Analysis Keyword-Article Analysis</li>
+                                    <li class="list-group-item">Breakdown of Keyword-Article Analysis</li>
+                                    <li class="list-group-item"><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                            <input type="hidden" name="cmd" value="_s-xclick">
+                                            <input type="hidden" name="hosted_button_id" value="4XXPL7MM8D86N">
+                                            <input type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                                            <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                                        </form>
+
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
                 </div>
-
-                <div class="row">
-
-                    <div class="col-lg-4">
-                        <div class="panel panel-default text-center">
-                            <div class="panel-heading">
-                                <strong>Basic</strong>
-                            </div>
-                            <div class="panel-body">
-                                <h3 class="panel-title price">$0
-                                    <span class="price-cents">00</span>
-                                    <span class="price-month">mo.</span>
-
-                                </h3>
-                            </div>
-                            <ul class="list-group">
-                                <li class="list-group-item">Money Management Articles</li>
-                                <li class="list-group-item">Access to the Forum for advice</li>
-                                <li class="list-group-item">News from 15 Online News Sources</li>
-                                <li class="list-group-item"><a href="#">Sign up now!</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default text-center">
-                            <div class="panel-heading">
-                                <strong>Premium</strong>
-                                <span class="label label-success"> Best Value! </span>
-                            </div>
-                            <div class="panel-body">
-                                <h3 class="panel-title price">$30
-                                    <span class="price-cents">00</span>
-                                    <span class="price-month">mo.</span>
-
-                                </h3>
-                            </div>
-                            <ul class="list-group">
-                                <li class="list-group-item">Money Management Articles</li>
-                                <li class="list-group-item">Access to the Forum for advice</li>
-                                <li class="list-group-item">News from <b>45</b> Premium Online News Sources</li>
-                                <li class="list-group-item">Personalizable news content</li>
-                                <li class="list-group-item">
-                                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                    <input type="hidden" name="cmd" value="_s-xclick">
-                                    <input type="hidden" name="hosted_button_id" value="WZLF9QEMKX5Z6">
-                                    <input type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
-                                    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-                                </form>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default text-center">
-                            <div class="panel-heading">
-                                <strong>Hardcore</strong>
-                                <span class="label label-danger"> GoPro! </span>
-                            </div>
-                            <div class="panel-body">
-                                <h3 class="panel-title price">$60
-                                    <span class="price-cents">00</span>
-                                    <span class="price-month">mo.</span>
-
-                                </h3>
-                            </div>
-                            <ul class="list-group">
-                                <li class="list-group-item">Money Management Articles</li>
-                                <li class="list-group-item">Access to the Forum for advice</li>
-                                <li class="list-group-item">News from <b>45</b> Premium Online News Sources</li>
-                                <li class="list-group-item">Personalizable news content</li>
-                                <li class="list-group-item">Company Analysis of 300+ companies</li>
-                                <li class="list-group-item">Monthly Sector Analysis of Key Segments</li>
-                                <li class="list-group-item">Access to chatroom with <b>real time</b> market feed</li>
-                                <li class="list-group-item"><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="4XXPL7MM8D86N">
-<input type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
-<img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
+                <!-- /.row -->
 
             </div>
             <!-- /#page-wrapper -->
-
         </div>
         <!-- /#wrapper -->
 
@@ -232,6 +217,8 @@
             ga('send', 'pageview');
 
         </script>
+
+
     </body>
 
 </html>
