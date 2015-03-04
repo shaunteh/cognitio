@@ -203,16 +203,16 @@ $db->connect();
                                             <td>
 												<strong>
 												<?php 
-												$percentage=round(($row['close']-$row['open'])/$row['open'],5);
+												$percentage=round(($row['close']-$row['open'])/$row['open'],3);
 												$difference=round($row['close']-$row['open'],2);
 												
 												if ($difference >= 0) {
 													?>
-													<div class="alert alert-success"> <?php echo $difference;?> <br> (<p class="fa fa-long-arrow-down"> <?php echo $percentage; ?>%</p>)</div>
+													<div class="alert alert-success"> <?php echo $difference;?> <br> (<p class="fa fa-long-arrow-up"> <?php echo $percentage; ?>%</p>)</div>
 													<?php
 												} else {
 													?>
-													<div class="alert alert-danger"> <?php echo $difference;?> <br> (<p class="fa fa-long-arrow-up"> <?php echo $percentage; ?>%</p>)</div>
+													<div class="alert alert-danger"> <?php echo $difference;?> <br> (<p class="fa fa-long-arrow-down"> <?php echo $percentage; ?>%</p>)</div>
 													<?php
 												}
 												?>
