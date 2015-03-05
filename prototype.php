@@ -170,6 +170,52 @@ $db->connect();
 				//If this is a POST
 				if (isset($_POST['company']) && strlen($_POST['company'])) {
 				?>
+				<table border="0">
+				<tr>
+					<td><h2>Search results for <?php echo $_POST['company'];?></h2></td>
+		
+					<td>
+				</tr>
+				<tr>
+					<td>
+				<?php
+				
+				switch ($_POST['company']) {
+					case "D05.SI":
+						?>
+						<img src="images/dbs.jpg">
+						<?php
+						break;
+					case "O39.SI":
+						?>
+						<img src="images/ocbc.jpg">
+						<?php
+						break;
+					case "U11.SI":
+						?>
+						<img src="images/uob.jpg">
+						<?php
+						break;
+					case "AK3.SI":
+						?>
+						<img src="images/swiber.jpg">
+						<?php
+						break;
+					case "5DN.SI":
+						?>
+						<img src="images/ezra.jpg">
+						<?php
+						break;
+					case "5ME.SI":
+						?>
+						<img src="images/ezion.jpg">
+						<?php
+						break;
+				}
+				?>
+					</td>
+				</tr>
+				</table>
 				<!-- /.row -->
 				<div class="row">
 					<div class="col-lg-12">
