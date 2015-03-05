@@ -51,7 +51,15 @@ $json = json_decode($content, true);
 			$data['spam_score']=$post['thread']['spam_score'];
 			$data['main_image']=$post['thread']['main_image'];
 			$data['text']=$post['text'];
-			$data['importance']=rand(30,99) + round(abs(1-mt_rand()/mt_rand()),2);
+			
+			if (strpos($data['url'],"reuters") !== false || strpos($data['url'],"fxstreet") !== false || strpos($data['url'],"business") !== false || strpos($data['url'],"invest") !== false|| strpos($data['url'],"news") !== false)
+			{
+			$data['importance']=rand(80,99) + round(abs(1-mt_rand()/mt_rand()),2);
+			}
+			else {
+			$data['importance']=rand(50,85) + round(abs(1-mt_rand()/mt_rand()),2);			
+			}
+			
 			$db->insert("thread",$data);
 		}
 
