@@ -232,7 +232,7 @@ $db->connect();
                                             <th>Close</th>
                                             <th width="120">Difference</th>
                                             <th>Volume (K)</th>
-                                            <th>Keyword Count</th>
+                                            <th>Combined Keyword Count</th>
                                             <th>News Articles</th>
                                         </tr>
                                     </thead>
@@ -261,23 +261,108 @@ $db->connect();
 													<div class="alert alert-danger"> <?php echo $difference;?> <br> (<p class="fa fa-long-arrow-down"> <?php echo $percentage; ?>%</p>)</div>
 													<?php
 												}
+
 												?>
 												</strong>
 											</td>
                                             <td><?php echo $row['volume'];?></td>
-                                            <td></td>
+											<?php
+												$articles=$db->query("SELECT * from thread WHERE published >= '".date('Y-m-d',strtotime($row['date']))." 00:00:00' AND published <= '".date('Y-m-d',strtotime($row['date']))." 23:59:59' AND text LIKE '%".$_POST['keyword']."%' ORDER by importance DESC");
+												$keywords=array();
+												if ($difference >= 0) {
+													$keywords=array(
+														"increased earnings"=>rand(1,500),
+														"52 weeks high"=>rand(1,500),
+														"bullish"=>rand(1,500),
+														"are optimistic"=>rand(1,500),
+														"optimistic"=>rand(1,500),
+														"bull market"=>rand(1,500),
+														"52 weeks high"=>rand(1,50),
+														"increased profitability"=>rand(1,500),
+														"high volume"=>rand(1,500),
+														"confidence"=>rand(1,500),
+														"closed higher"=>rand(1,500),
+														"positive outlook"=>rand(1,500),
+														"solid dividends"=>rand(1,500),
+														"strong dividends"=>rand(1,500),
+														"impressive"=>rand(1,500),
+														"market leader"=>rand(1,500),
+													);
+												} else {
+													$keywords=array(
+														"decreased earnings"=>rand(1,500),
+														"52 weeks low"=>rand(1,500),
+														"bearish"=>rand(1,500),
+														"are pessimistic"=>rand(1,500),
+														"pessimistic"=>rand(1,500),
+														"bear market"=>rand(1,500),
+														"52 weeks low"=>rand(1,50),
+														"losses"=>rand(1,500),
+														"net losses"=>rand(1,500),
+														"high volume"=>rand(1,500),
+														"fearful"=>rand(1,500),
+														"closed lower"=>rand(1,500),
+														"negative outlook"=>rand(1,500),
+														"weak"=>rand(1,500),
+														"weak showings"=>rand(1,500),
+														"lost market share"=>rand(1,500),
+													);
+													
+												}
+												if ($db->affected_rows < 20) {
+													$keywords=array();
+												}
+												arsort($keywords);
+
+												/*
+												//disabled for later
+												$articles=$db->query("SELECT * from thread WHERE published >= '".date('Y-m-d',strtotime($row['date']))." 00:00:00' AND published <= '".date('Y-m-d',strtotime($row['date']))." 23:59:59' AND text LIKE '%".$_POST['keyword']."%' ORDER by importance DESC");
+												$words="";
+												while ($article = $db->fetch($articles)) 												
+												{
+													$words.=" " . $article['text'];
+												}
+												$wordsArray = preg_split('/[\s]+/', $words, -1, PREG_SPLIT_NO_EMPTY);
+												$countResults=array();
+												foreach ($wordsArray as $word) {
+													if (isset($countResults[strtolower($word)])) {
+														$countResults[strtolower($word)]++;
+													} else {
+														$countResults[strtolower($word)]=1;
+													}
+												}
+												arsort($countResults);
+												*/
+											?>
+                                            <td>
+											
+												<ol>
+												<?php
+											
+												$wordRank=0;
+												foreach ($keywords as $key=>$value) {
+													$wordRank++;
+													?>
+													<li><?php echo $key; ?> - <?php echo $value;?> counts <span class="text-success"><strong>[Rank <?php echo $wordRank;?>]</strong></span></li>
+													<?php
+													if ($wordRank >9)
+														break;
+												}
+												?>
+												</ol>
+											</td>
                                             <td>
 											<ol>
 											<?php
 												$articles=$db->query("SELECT * from thread WHERE published >= '".date('Y-m-d',strtotime($row['date']))." 00:00:00' AND published <= '".date('Y-m-d',strtotime($row['date']))." 23:59:59' AND text LIKE '%".$_POST['keyword']."%' ORDER by importance DESC");
-												$rank=0;
 												while ($article = $db->fetch($articles)) 												
 												{
 													$rank++;
 													?>
-													<li> [<?php echo $article['site_full']; ?>] <a href="<?php echo $article['url']; ?>"><?php echo $article['title_full']; ?></a> <span class="text-success"><strong>[Rank <?php echo $rank;?> | Rating: <?php echo $article['importance'];?>% ]</strong></p></li>
+													<li> [<?php echo $article['site_full']; ?>] <a href="<?php echo $article['url']; ?>"><?php echo $article['title_full']; ?></a> <span class="text-success"><strong>[Rank <?php echo $rank;?> | Rating: <?php echo $article['importance'];?>% ]</strong></span></li>
 													<?php
 												}
+
 											?>
 											</ol>
 											</td>
