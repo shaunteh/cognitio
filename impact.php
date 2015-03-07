@@ -119,7 +119,7 @@ $db->connect();
                         </div>
                         <div class='col-lg-2'>
                             Page 3
-                            <form action='subscribe.html' method='post'>
+                            <form action='subscribe.html'>
                                 <button type="submit" class="btn btn-default"><i class="fa fa-caret-right"></i>
                                 </button>
                             </form>

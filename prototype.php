@@ -109,7 +109,7 @@ $db->connect();
                         </div>
                         <div class='col-lg-2'>
                             Page 2
-                            <form action='impact.php' method='post'>
+                            <form action='impact.php'>
                                 <button type="submit" class="btn btn-default"><i class="fa fa-caret-right"></i>
                                 </button>
                             </form>
