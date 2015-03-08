@@ -123,6 +123,23 @@ $db->connect();
                 <!-- /.row -->
 				<!-- /.row -->
 				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								Instructions
+							</div>
+							<div class="panel-body">
+								<p>
+									1. The dates from <?php echo date('d-m-Y', strtotime("-1 month"));?> to <?php echo date('d-m-Y', strtotime("-1 day"));?>, and the company "DBS Group" has been automatically filled in for you to make it easy for you to test.  <br>
+									2. Simply press 'Search' to view results. <br>
+									3. You may change the dates and the company.
+								</p>
+							</div>
+							<div class="panel-footer">
+							</div>
+						</div>
+					</div>
+				
 					<div class="col-lg-6">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -137,12 +154,11 @@ $db->connect();
 											</div>
 											<div class="form-group">
 												<label>End Date</label>
-												<input name="enddate" class="form-control" value="<?php echo date('d-m-Y');?>">
+												<input name="enddate" class="form-control" value="<?php echo date('d-m-Y', strtotime("-1 day"));?>">
 											</div>
 											<div class="form-group">
 												<label>Company</label>
 												<select name="company" class="form-control">
-													<option value="">Please select a company</option>
 													<option value="D05.SI" <?php if ($_POST['company'] == "D05.SI") echo "selected"; ?>>DBS Group</option>
 													<option value="O39.SI" <?php if ($_POST['company'] == "O39.SI") echo "selected"; ?>>OCBC Group</option>
 													<option value="U11.SI" <?php if ($_POST['company'] == "U11.SI") echo "selected"; ?>>UOB Group</option>

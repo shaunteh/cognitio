@@ -133,6 +133,23 @@ $db->connect();
                 <!-- /.row -->
 				<!-- /.row -->
 				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								Instructions
+							</div>
+							<div class="panel-body">
+								<p>
+									1. The dates from <?php echo date('d-m-Y', strtotime("-1 month"));?> to <?php echo date('d-m-Y', strtotime("-1 day"));?>, and the "Singapore Banking Industry (DBS, UOB, OCBC)" has been automatically filled in for you to make it easy for you to test.  <br>
+									2. Simply press 'Search' to view results. <br>
+									3. You may change the dates and the company.
+								</p>
+							</div>
+							<div class="panel-footer">
+							</div>
+						</div>
+					</div>
+				
 					<div class="col-lg-6">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -152,7 +169,6 @@ $db->connect();
 											<div class="form-group">
 												<label>Industry</label>
 												<select name="industry" class="form-control">
-													<option value="">Please select an industry</option>
 													<option value="1" <?php if ($_POST['industry']==1) echo "selected"; ?>>Singapore Banking Industry (DBS, UOB, OCBC)</option>
 													<option value="2" <?php if ($_POST['industry']==2) echo "selected"; ?>>Singapore Oil Industry (Ezra, Ezion, Swiber)</option>
 												</select>
