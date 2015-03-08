@@ -32,7 +32,7 @@ $url = 'https://webhose.io/search?token=ae1f42ff-9e16-4e94-ad0b-fc603b85734e&for
 $content = file_get_contents($url);
 $json = json_decode($content, true);
 	foreach($json['posts'] as $post) {
-		$record=$db->query_first("SELECT * FROM thread WHERE url ='".$post['thread']['url']."'");
+		$record=$db->query_first("SELECT * FROM thread WHERE url ='".mysql_escape_string($post['thread']['url'])."'");
 		//No record, so let's add into database
 		if (!isset($record['id'])) {
 			$data=array();
@@ -54,7 +54,7 @@ $json = json_decode($content, true);
 			
 			if (strpos($data['url'],"reuters") !== false || strpos($data['url'],"fxstreet") !== false || strpos($data['url'],"business") !== false || strpos($data['url'],"invest") !== false|| strpos($data['url'],"news") !== false)
 			{
-			$data['importance']=rand(80,99) + round(abs(1-mt_rand()/mt_rand()),2);
+			$data['importance']=rand(60,98) + round(abs(1-mt_rand()/mt_rand()),2);
 			}
 			else {
 			$data['importance']=rand(50,85) + round(abs(1-mt_rand()/mt_rand()),2);			
