@@ -90,19 +90,19 @@ $db->connect();
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="news.html"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
+                                <a analytics-on="click" analytics-event="jump to news" analytics-category="Prototype" href="news.html"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
                             </li>
                             <li>
-                                <a href="prototype.php"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
+                                <a analytics-on="click" analytics-event="jump to prototype" analytics-category="Prototype" href="prototype.php"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
                             </li>
                             <li>
-                                <a href="impact.php"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
+                                <a analytics-on="click" analytics-event="jump to impact" analytics-category="Prototype" href="impact.php"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
                             </li>
                             <li>
-                                <a href="subscribe.html"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
+                                <a analytics-on="click" analytics-event="jump to subscribe" analytics-category="Prototype" href="subscribe.html"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
                             </li>
                             <li>
-                                <a href="feedback.html"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
+                                <a analytics-on="click" analytics-event="jump to feedback" analytics-category="Prototype" href="feedback.html"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
                             </li>
                         </ul>
                     </div>
@@ -122,7 +122,7 @@ $db->connect();
                         <div class='col-lg-2'>
                             Page 2
                             <form action='impact.php'>
-                                <button type="submit" analytics-on="click" analytics-event="Go Impact" analytics-category="Analysis" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
+                                <button type="submit" analytics-on="click" analytics-event="Go to Impact" analytics-category="Prototype" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
                             </form>
                         </div>
 						
