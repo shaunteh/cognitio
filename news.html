@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='newsApp'>
+
     <head>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,6 +35,7 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <!-- Navigation -->
 
         <style type='text/css'>
             div button {
@@ -40,27 +43,12 @@
                 margin: 0;
             }
         </style>
-        
-        <!-- Navigation -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-	<script src="http://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics.js"></script>
-	<script src="https://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics-ga.js"></script>
-    	<script src="dist/js/sb-admin-2.js"></script>
-    	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	  ga('create', 'UA-60245828-1', { 'cookieDomain': 'none' });
-	</script>
-	
-	<script>
-		angular.module('news', ['angulartics', 'angulartics.google.analytics']);
-	</script>
+
+        <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
     </head>
 
-    <body ng-app="news">
+    <body>
+
         <div id="wrapper">
 
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -97,6 +85,7 @@
                 <!-- /.navbar-static-side -->
             </nav>
 
+
             <div id="page-wrapper" ng-controller="categoryCtrl">
                 <div class="row">
                     <div class="col-lg-12">
@@ -107,7 +96,8 @@
                         <div class='col-lg-2'>
                             Page 1
                             <form action='prototype.php'>
-                                <button type="submit" analytics-on="click" analytics-event="Go Analysis" analytics-category="News" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
+                                <button type="submit" class="btn btn-default"><i class="fa fa-caret-right"></i>
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -171,10 +161,8 @@
         </div>
         <!-- /#wrapper -->
         <script>
-
             var categoryModule = angular.module('newsApp', []);
             categoryModule.controller('categoryCtrl', ['$scope', function($scope) {
-
                     $scope.articles = [
                         {"image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR1WRnc32am6xKOpn5_Fdb6TX4Fz3HoZXMUhW7-s3CGNWIxmVhR", "source": "Reuters", "title": "European shares enjoy best month in over 3 years", "url": 'http://www.reuters.com/article/2015/01/30/markets-stocks-europe-idUSL6N0V94L820150130',
                             "category": "Markets", "region": "Europe", "time": "Jan 30 2015, 12.48PM EST", "description": "PARIS, Jan 30 (Reuters) - European stocks dipped on Friday but posted their best monthly performance in over three years, lifted by hopes the European Central Bank's quantitative easing programme will revive the region's economic growth and corporate earnings will bounce."},
@@ -188,13 +176,11 @@
                             "category": "Banking", "region": "Singapore", "time": "Jan 28 2015, 7.53AM ET", "description": "[HONG KONG] Standard Chartered is seeking a leader with a tough-to-find mix of Asian experience and regulatory clout as it kicks off the search for a successor to CEO Peter Sands, investors, bankers and headhunters told Reuters."}
                     ];
                     $scope.categoryTypes = {Markets: true, Energy: true, Manufacturing: true, Breaking: true, Banking: true};
-
                 }]);
             categoryModule.filter('categoryfilter', function() {
                 return function(input, filter) {
                     var result = [];
                     var alt = [];
-
                     angular.forEach(input, function(article) {
                         if (filter[article.category])
                             result.push(article);
@@ -207,7 +193,6 @@
                         return alt;
                 };
             });
-
         </script>
 
         <!-- jQuery -->
@@ -215,20 +200,36 @@
         </div>
         <div class="col-lg-12"><p><center>Cognitio does not claim ownership over the content being published here.</center></p></div>
 
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	
-	<!-- Bootstrap Core JavaScript -->
-	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
-	
-	<!-- Morris Charts JavaScript -->
-	<script src="bower_components/raphael/raphael-min.js"></script>
-	<script src="bower_components/morrisjs/morris.min.js"></script>
-	<script src="js/morris-data.js"></script>
-	
-	<!-- Custom Theme JavaScript -->
-        <script src="dist/js/sb-admin-2.js"></script>
-    </body>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="bower_components/raphael/raphael-min.js"></script>
+    <script src="bower_components/morrisjs/morris.min.js"></script>
+    <script src="js/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-60245828-1', 'auto');
+            ga('send', 'pageview');
+    </script>
+</body>
+
 </html>
