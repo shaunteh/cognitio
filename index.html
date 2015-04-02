@@ -45,11 +45,15 @@
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	  ga('create', 'UA-60245828-2', 'auto');
+	  ga('create', 'UA-60245828-1', { 'cookieDomain': 'none' });
+	</script>
+	
+	<script>
+		angular.module('sample', ['angulartics', 'angulartics.google.analytics']);
 	</script>
     </head>
 
-    <body ng-app='sample'>
+    <body ng-app="sample">
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -123,9 +127,9 @@
                                 </ul>
 								
                                 <h4>
-                                    <form action='news.html'>
+                                    <form action='#'>
                                         Ready to explore our app?
-	                                    <button analytics-on="click" analytics-category="index" class="btn btn-primary">
+	                                    <button analytics-on="click" analytics-event="Let's Go!" analytics-category="index" class="btn btn-primary">Let's Go</button>
 	                                    	Lets Go!
 	                                    		
 	                                    </button>
@@ -158,17 +162,17 @@
         <script src="dist/js/sb-admin-2.js"></script>
 
 	
-<script>
-	angular.module('sample', ['angulartics', 'angulartics.google.analytics'])
-	.config(function ($routeProvider, $analyticsProvider) {
-		$routeProvider
-			.when('/', { templateUrl: '/samples/partials/root.tpl.html', controller: 'SampleCtrl' })
-			.when('/a', { templateUrl: '/samples/partials/a.tpl.html', controller: 'SampleCtrl' })
-			.when('/b', { templateUrl: '/samples/partials/b.tpl.html', controller: 'SampleCtrl' })
-			.when('/c', { templateUrl: '/samples/partials/c.tpl.html', controller: 'SampleCtrl' })
-			.otherwise({ redirectTo: '/' });
-	})
-	.controller('SampleCtrl', function () {});
-</script>
+	<script>
+		angular.module('sample', ['angulartics', 'angulartics.google.analytics'])
+		.config(function ($routeProvider, $analyticsProvider) {
+			$routeProvider
+				.when('/', { templateUrl: '/samples/partials/root.tpl.html', controller: 'SampleCtrl' })
+				.when('/a', { templateUrl: '/samples/partials/a.tpl.html', controller: 'SampleCtrl' })
+				.when('/b', { templateUrl: '/samples/partials/b.tpl.html', controller: 'SampleCtrl' })
+				.when('/c', { templateUrl: '/samples/partials/c.tpl.html', controller: 'SampleCtrl' })
+				.otherwise({ redirectTo: '/' });
+		})
+		.controller('SampleCtrl', function () {});
+	</script>
     </body>
 </html>
