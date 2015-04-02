@@ -107,7 +107,7 @@
                         <div class='col-lg-2'>
                             Page 1
                             <form action='prototype.php'>
-                                <button type="submit" class="btn btn-default" analytics-on="click" analytics-event="Page 1 to Page 2" analytics-category="News"><i class="fa fa-caret-right"></i>
+                                <button class="btn btn-default" analytics-on="click" analytics-event="Page 1 to Page 2" analytics-category="News"><i class="fa fa-caret-right"></i>
                                 </button>
                             </form>
                         </div>
@@ -216,20 +216,20 @@
         </div>
         <div class="col-lg-12"><p><center>Cognitio does not claim ownership over the content being published here.</center></p></div>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+	
+	<!-- Morris Charts JavaScript -->
+	<script src="bower_components/raphael/raphael-min.js"></script>
+	<script src="bower_components/morrisjs/morris.min.js"></script>
+	<script src="js/morris-data.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="bower_components/raphael/raphael-min.js"></script>
-    <script src="bower_components/morrisjs/morris.min.js"></script>
-    <script src="js/morris-data.js"></script>
-
-    <script>
+    	<script>
 		angular.module('sample', ['angulartics', 'angulartics.google.analytics'])
 		.config(function ($routeProvider, $analyticsProvider) {
 			$routeProvider
@@ -241,6 +241,5 @@
 		})
 		.controller('SampleCtrl', function () {});
 	</script>
-</body>
-
+    </body>
 </html>
