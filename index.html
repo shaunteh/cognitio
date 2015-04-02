@@ -37,11 +37,9 @@
         
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        
-        <script>
-        	$('#letsgo').on('click', function() {
-		  ga('send', 'event', 'button', 'click', 'Lets Go', 1);
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="javascripts/angulartics.js"></script>
+	<script src="javascripts/angulartics-ga.js"></script>
     </head>
 
     <body>
@@ -119,10 +117,10 @@
 								
                                 <h4>
                                     <form action='news.html'>
-                                        Ready to explore our app? 
-                                    <button type="submit" id="letsgo" class="btn btn-primary">
-                                        Let's go!
-                                    </button>
+                                        Ready to explore our app?
+	                                    <button type="submit" class="btn btn-primary" analytics-on="click" analytics-event="Lets Go" analytics-category="Landing Page">
+	                                    	Let's go!
+	                                    </button>
                                     </form>
                                 </h4>
                             </div>
@@ -155,9 +153,11 @@
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-60245828-1', { 'cookieDomain': 'none' });
+	</script>
 	
-	  ga('create', 'UA-60245828-1', 'auto');
-	  ga('send', 'pageview');
+	<script>
+		angular.module('sample', ['angulartics', 'angulartics.google.analytics']);
 	</script>
     </body>
 </html>
