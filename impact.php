@@ -59,13 +59,25 @@ $db->connect();
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <!-- Navigation -->
-
-
-
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+	<script src="http://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics.js"></script>
+	<script src="https://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics-ga.js"></script>
+	<script src="dist/js/sb-admin-2.js"></script>
+        <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-60245828-1', { 'cookieDomain': 'none' });
+	</script>
+	
+	<script>
+		angular.module('impact', ['angulartics', 'angulartics.google.analytics']);
+	</script>
     </head>
 
-    <body>
+    <body ng-app="impact">
 
         <div id="wrapper">
 
@@ -120,7 +132,7 @@ $db->connect();
                         <div class='col-lg-2'>
                             Page 3
                             <form action='subscribe.html'>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-caret-right"></i>
+                                <button type="submit" analytics-on="click" analytics-event="Go Subscribe" analytics-category="Impact" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
                                 </button>
                             </form>
                         </div>
@@ -174,7 +186,7 @@ $db->connect();
 												</select>
 											</div>
 											
-											<button type="submit" class="btn btn-default">Search</button>
+											<button analytics-on="click" analytics-event="Query" analytics-category="Impact" type="submit" class="btn btn-default">Search</button>
 										</form>
 							 <!-- /.row (nested) -->
 							</div>
@@ -305,18 +317,6 @@ $db->connect();
 
         <!-- Custom Theme JavaScript -->
         <script src="dist/js/sb-admin-2.js"></script>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
-	  ga('create', 'UA-60245828-1', 'auto');
-	  ga('send', 'pageview');
-	
-	</script>
-
-
     </body>
 
 </html>
