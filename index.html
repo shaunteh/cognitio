@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,10 +34,14 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <!-- Navigation -->
-
-
-
-
+        
+        <!-- JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        
+        <script>
+        	$('#letsgo').on('click', function() {
+		  ga('send', 'event', 'button', 'click', 'Lets Go', 1);
+        </script>
     </head>
 
     <body>
@@ -54,7 +56,6 @@
                 </div>
                 <!-- /.navbar-header -->
                 <ul class="nav navbar-top-links navbar-right">
-                    
                 </ul>
                 <!-- /.navbar-top-links -->
                 <div class="navbar-default sidebar" role="navigation">
@@ -94,8 +95,8 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <h3>Join us Today</h3>
-								<iframe width="853" height="480" src="https://www.youtube.com/embed/M8dbO1YwLts" frameborder="0" allowfullscreen></iframe>
-								<h3>About Us</h3>
+				<iframe width="853" height="480" src="https://www.youtube.com/embed/M8dbO1YwLts" frameborder="0" allowfullscreen></iframe>
+				<h3>About Us</h3>
                                 <p>
                                     We are all about giving YOU financial news that you NEED!
                                 </p>
@@ -119,17 +120,12 @@
                                 <h4>
                                     <form action='news.html'>
                                         Ready to explore our app? 
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" id="letsgo" class="btn btn-primary">
                                         Let's go!
-                                    
                                     </button>
                                     </form>
-                                    
                                 </h4>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -162,10 +158,6 @@
 	
 	  ga('create', 'UA-60245828-1', 'auto');
 	  ga('send', 'pageview');
-	
 	</script>
-
-
     </body>
-
 </html>
