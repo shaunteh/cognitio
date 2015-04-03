@@ -65,12 +65,19 @@ $db->connect();
 	<script>
 		angular.module('analysis', ['angulartics', 'angulartics.google.analytics']);
 	</script>
+	
+	<script type="text/javascript">
+ 		function callga(id) {
+			ga('send', 'event', {
+			  'eventCategory': 'Analysis',
+			  'eventAction': id
+			});
+ 		}
+ 	</script>
     </head>
 
     <body ng-app="analysis">
-
         <div id="wrapper">
-
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -89,22 +96,22 @@ $db->connect();
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to news" analytics-category="Prototype" href="news.html"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to prototype" analytics-category="Prototype" href="prototype.php"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to impact" analytics-category="Prototype" href="impact.php"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to subscribe" analytics-category="Prototype" href="subscribe.html"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to feedback" analytics-category="Prototype" href="feedback.html"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
-                            </li>
-                        </ul>
+				<li>
+					<a href="news.html" id="Jump to News" onclick="callga(this.id)"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
+				</li>
+				<li>
+					<a href="prototype.php" id="Jump to Prototype" onclick="callga(this.id)"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
+				</li>
+				<li>
+					<a href="impact.php" id="Jump to Impact" onclick="callga(this.id)"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
+				</li>
+				<li>
+					<a href="subscribe.html" id="Jump to Subscribe" onclick="callga(this.id)"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
+				</li>
+				<li>
+					<a href="feedback.html" id="Jump to Feedback" onclick="callga(this.id)"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
+				</li>
+			</ul>
                     </div>
                     <!-- /.sidebar-collapse -->
                 </div>
@@ -122,7 +129,7 @@ $db->connect();
                         <div class='col-lg-2'>
                             Page 2
                             <form action='impact.php'>
-                                <button type="submit" analytics-on="click" analytics-event="Go to Impact" analytics-category="Prototype" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
+                                <button type="submit" id="Prototype to Impact" onclick="callga(this.id)" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
                             </form>
                         </div>
 						
