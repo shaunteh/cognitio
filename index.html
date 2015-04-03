@@ -51,16 +51,6 @@
 	<script>
 		angular.module('sample', ['angulartics', 'angulartics.google.analytics']);
 	</script>
-	
-	<script type="text/javascript">
-		function test() {
-			alert("meow");
-			ga('send', 'event', {
-			  'eventCategory': 'Category',
-			  'eventAction': 'Action'
-			});
-		}
-	</script>
     </head>
 
     <body ng-app="sample">
@@ -139,7 +129,7 @@
                                 <h4>
                                     <form action='news.html'>
                                         Ready to explore our app?
-	                                    <button onclick="test()" class="btn btn-primary">	Let's Go
+	                                    <button onclick="ga('send', 'event', 'button', 'click')" class="btn btn-primary">	Let's Go
 	                                    		
                                     	</button>
 	                                    	
