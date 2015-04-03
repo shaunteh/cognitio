@@ -55,11 +55,6 @@
 	<script type="text/javascript">
 		function test() {
 			alert("meow");
-			ga('send', 'event', {
-			  'eventCategory': 'Category',
-			  'eventAction': 'Action',
-			  'eventLabel': input
-			});
 		}
 	</script>
     </head>
@@ -140,7 +135,7 @@
                                 <h4>
                                     <form action='news.html'>
                                         Ready to explore our app?
-	                                    <button id="test" onclick="test()" class="btn btn-primary">	Let's Go
+	                                    <button onclick="test()" class="btn btn-primary">	Let's Go
 	                                    		
                                     	</button>
 	                                    	
@@ -171,19 +166,5 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="dist/js/sb-admin-2.js"></script>
-
-	
-	<script>
-		angular.module('sample', ['angulartics', 'angulartics.google.analytics'])
-		.config(function ($routeProvider, $analyticsProvider) {
-			$routeProvider
-				.when('/', { templateUrl: '/samples/partials/root.tpl.html', controller: 'SampleCtrl' })
-				.when('/a', { templateUrl: '/samples/partials/a.tpl.html', controller: 'SampleCtrl' })
-				.when('/b', { templateUrl: '/samples/partials/b.tpl.html', controller: 'SampleCtrl' })
-				.when('/c', { templateUrl: '/samples/partials/c.tpl.html', controller: 'SampleCtrl' })
-				.otherwise({ redirectTo: '/' });
-		})
-		.controller('SampleCtrl', function () {});
-	</script>
     </body>
 </html>
