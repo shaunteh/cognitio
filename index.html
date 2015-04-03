@@ -49,7 +49,7 @@
 	</script>
 	
 	<script>
-		angular.module('sample', ['angulartics', 'angulartics.google.analytics']);
+		angular.module('index', ['angulartics', 'angulartics.google.analytics']);
 	</script>
 	
 	<script type="text/javascript">
@@ -62,7 +62,7 @@
  	</script>
     </head>
 
-    <body ng-app="sample">
+    <body ng-app="index">
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -80,19 +80,19 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a analytics-on="click" analytics-event="jump to news" analytics-category="Index" href="news.html"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
+                                <a href="news.html" id="Jump to News" onclick="callga(this.id)"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
                             </li>
                             <li>
-                                <a analytics-on="click" analytics-event="jump to prototype" analytics-category="Index" href="prototype.php"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
+                                <a href="prototype.php" id="Jump to Prototype" onclick="callga(this.id)"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
                             </li>
                             <li>
-                                <a analytics-on="click" analytics-event="jump to impact" analytics-category="Index" href="impact.php"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
+                                <a href="impact.php" id="Jump to Impact" onclick="callga(this.id)"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
                             </li>
                             <li>
-                                <a analytics-on="click" analytics-event="jump to subscribe" analytics-category="Index" href="subscribe.html"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
+                                <a href="subscribe.html" id="Jump to Subscribe" onclick="callga(this.id)"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
                             </li>
                             <li>
-                                <a analytics-on="click" analytics-event="jump to feedback" analytics-category="Index" href="feedback.html"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
+                                <a href="feedback.html" id="Jump to Feedback" onclick="callga(this.id)"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
                             </li>
                         </ul>
                     </div>
