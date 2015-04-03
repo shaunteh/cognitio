@@ -55,6 +55,10 @@
 	<script type="text/javascript">
 		function test() {
 			alert("meow");
+			ga('send', 'event', {
+			  'eventCategory': 'Category',
+			  'eventAction': 'Action'
+			});
 		}
 	</script>
     </head>
