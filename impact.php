@@ -93,7 +93,7 @@ $db->connect();
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Cognitio</a>
+                    <a class="navbar-brand" href="index.html" id="Back to Index" onclick="callga(this.id)">Cognitio</a>
                 </div>
                 <!-- /.navbar-header -->
 
