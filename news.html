@@ -47,26 +47,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
     	<script src="http://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics.js"></script>
     	<script src="https://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics-ga.js"></script>
-    	<script>
-    	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    	  ga('create', 'UA-60245828-1', { 'cookieDomain': 'none' });
-    	</script>
     	
-    	<script>
-    		angular.module('news', ['angulartics', 'angulartics.google.analytics']);
-    	</script>
-    	
-    	<script type="text/javascript">
-     		function callga(id) {
-    			ga('send', 'event', {
-    			  'eventCategory': 'News',
-    			  'eventAction': id
-    			});
-     		}
-     	</script>
 
         <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
     </head>
@@ -86,19 +67,19 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="news.html" id="Jump to News" onclick="callga(this.id)"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
+                                <a href="news.html"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
                             </li>
                             <li>
-                                <a href="prototype.php" id="Jump to Prototype" onclick="callga(this.id)"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
+                                <a href="prototype.php"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
                             </li>
                             <li>
-                                <a href="impact.php" id="Jump to Impact" onclick="callga(this.id)"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
+                                <a href="impact.php"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
                             </li>
                             <li>
-                                <a href="subscribe.html" id="Jump to Subscribe" onclick="callga(this.id)"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
+                                <a href="subscribe.html""><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
                             </li>
                             <li>
-                                <a href="feedback.html" id="Jump to Feedback" onclick="callga(this.id)"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
+                                <a href="feedback.html"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
                             </li>
                         </ul>
                     </div>
@@ -118,7 +99,7 @@
                         <div class='col-lg-2'>
                             Page 1
                             <form action='prototype.php'>
-                                <button type="submit" id="News to Prototype" onclick="callga(this.id)" class="btn btn-default"><i class="fa fa-caret-right"></i>
+                                <button type="submit" class="btn btn-default"><i class="fa fa-caret-right"></i>
                                 </button>
                             </form>
                         </div>
