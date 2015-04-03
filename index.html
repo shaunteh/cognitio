@@ -52,11 +52,15 @@
 		angular.module('sample', ['angulartics', 'angulartics.google.analytics']);
 	</script>
 	
-	<script>
-		callga(id){
-			alert(id);
-		}
-	</script>
+	<script type="text/javascript">
+ 		function callga(id) {
+ 			alert(id);
++			ga('send', 'event', {
++			  'eventCategory': 'Index',
++			  'eventAction': id
++			});
+ 		}
+ 	</script>
     </head>
 
     <body ng-app="sample">
