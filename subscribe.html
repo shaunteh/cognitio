@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,11 +35,11 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <!-- Navigation -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
 	<script src="http://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics.js"></script>
 	<script src="https://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics-ga.js"></script>
-    <script src="dist/js/sb-admin-2.js"></script>
-    <script>
+	<script src="dist/js/sb-admin-2.js"></script>
+	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -53,8 +51,14 @@
 		angular.module('subscribe', ['angulartics', 'angulartics.google.analytics']);
 	</script>
 
-
-
+	<script type="text/javascript">
+ 		function callga(id) {
+			ga('send', 'event', {
+			  'eventCategory': 'Index',
+			  'eventAction': id
+			});
+ 		}
+ 	</script>
     </head>
 
     <body ng-app="subscribe">
@@ -77,22 +81,22 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to news" analytics-category="Subscribe" href="news.html"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to prototype" analytics-category="Subscribe" href="prototype.php"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to impact" analytics-category="Subscribe" href="impact.php"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to subscribe" analytics-category="Subscribe" href="subscribe.html"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
-                            </li>
-                            <li>
-                                <a analytics-on="click" analytics-event="jump to feedback" analytics-category="Subscribe" href="feedback.html"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
-                            </li>
-                        </ul>
+				<li>
+					<a href="news.html" id="Jump to News" onclick="callga(this.id)"><i class="fa fa-globe fa-fw"></i> Global Financial News</a>
+				</li>
+				<li>
+					<a href="prototype.php" id="Jump to Prototype" onclick="callga(this.id)"><i class="fa fa-bar-chart-o fa-fw"></i> Market Analysis</a>
+				</li>
+				<li>
+					<a href="impact.php" id="Jump to Impact" onclick="callga(this.id)"><i class="fa fa-exclamation-circle fa-fw"></i> News Impact Analysis</a>
+				</li>
+				<li>
+					<a href="subscribe.html" id="Jump to Subscribe" onclick="callga(this.id)"><i class="fa fa-arrow-right fa-fw"></i> Our Subscription Packages</a>
+				</li>
+				<li>
+					<a href="feedback.html" id="Jump to Feedback" onclick="callga(this.id)"><i class="fa fa-comments fa-fw"></i> Provide some Feedback</a>
+				</li>
+			</ul>
                     </div>
                     <!-- /.sidebar-collapse -->
                 </div>
@@ -103,13 +107,12 @@
                     <div class="col-lg-12">
                         <div class='col-lg-10'>
                             <h1 id='top' class="page-header">Subscription Packages</h1>
-                            
                         </div>
                         
                         <div class='col-lg-2'>
                             Page 4
                             <form action='feedback.html'>
-                                <button type="submit" analytics-on="click" analytics-event="Give Feedback" analytics-category="Subscribe" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
+                                <button type="submit" id="Subscribe to Feedback" onclick="callga(this.id)" class="btn btn-default"><i class="fa fa-caret-right"></i></button>
                             </form>
                         </div>
                         <div class="col-lg-12">
@@ -141,7 +144,7 @@
                                 </div>
                                 <ul class="list-group">
                                     <li class="list-group-item">Personalize Your News</li>
-                                    <li class="list-group-item"><a href="#" analytics-on="click" analytics-event="free-tier" analytics-category="Subscribe">Sign up now!</a>
+                                    <li class="list-group-item"><a href="#" id="Free-tier" onclick="callga(this.id)">Sign up now!</a>
                                     </li>
                                 </ul>
                             </div>
@@ -166,7 +169,7 @@
                                         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                             <input type="hidden" name="cmd" value="_s-xclick">
                                             <input type="hidden" name="hosted_button_id" value="WZLF9QEMKX5Z6">
-                                            <input analytics-on="click" analytics-event="30-tier" analytics-category="Subscribe" type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                                            <input id="30-tier" onclick="callga(this.id)" type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
                                             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
                                         </form>
                                     </li>
@@ -197,7 +200,7 @@
                                     <li class="list-group-item"><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                             <input type="hidden" name="cmd" value="_s-xclick">
                                             <input type="hidden" name="hosted_button_id" value="4XXPL7MM8D86N">
-                                            <input analytics-on="click" analytics-event="90-tier" analytics-category="Subscribe" type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                                            <input id="90-tier" onclick="callga(this.id)" type="image" src="https://www.sandbox.paypal.com/en_GB/SG/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
                                             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
                                         </form>
 
@@ -232,7 +235,5 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="dist/js/sb-admin-2.js"></script>
-
     </body>
-
 </html>
