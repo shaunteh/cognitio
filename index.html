@@ -53,12 +53,8 @@
 	</script>
 	
 	<script>
-		callGA(id){
-			alert("meow");
-			ga('send', 'event', {
-			  'eventCategory': 'Index',
-			  'eventAction': id
-			});
+		callga(id){
+			alert(id);
 		}
 	</script>
     </head>
@@ -139,7 +135,7 @@
                                 <h4>
                                     <form action='news.html'>
                                         Ready to explore our app?
-					<button id="LetsGo" onclick="callGA(this.id)" class="btn btn-primary">Let's Go
+					<button id="LetsGo" onclick="callga(this.id)" class="btn btn-primary">Let's Go
 					</button>
                                     </form>
                                 </h4>
