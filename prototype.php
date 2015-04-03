@@ -190,7 +190,7 @@ $db->connect();
 												<input name="keyword" class="form-control" placeholder="Enter keywords" value="<?php echo $_POST['keyword'];?>">
 											</div>
 											
-											<button analytics-on="click" analytics-event="Query" analytics-category="Analysis" type="submit" class="btn btn-default">Search</button>
+											<button id="Search" onclick="callga(this.id)" type="submit" class="btn btn-default">Search</button>
 										</form>
 							 <!-- /.row (nested) -->
 							</div>
