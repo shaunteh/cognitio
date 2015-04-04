@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"  ng-app="newsApp">
+<html lang="en" ng-app="newsApp">
+
     <head>
+    
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,23 +43,6 @@
                 margin: 0;
             }
         </style>
-        
-        <!-- JavaScript -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-        <script src="http://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics.js"></script>
-    	<script src="https://dl.dropboxusercontent.com/u/4972572/temp/angulartics-master/src/angulartics-ga.js"></script>
-    	<script>
-    	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    	  ga('create', 'UA-60245828-1', { 'cookieDomain': 'none' });
-    	</script>
-    	
-    	<script>
-		angular.module('news', ['angulartics', 'angulartics.google.analytics']);
-	</script>
     	
     	<script type="text/javascript">
      		function callga(id) {
@@ -71,7 +56,7 @@
      	<script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.16"></script>
     </head>
 
-    <body ng-app="news">
+    <body>
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -81,10 +66,8 @@
                     </button>
                     <a class="navbar-brand" href="index.html" id="Back to Index" onclick="callga(this.id)">Cognitio</a>
                 </div>
-                <!-- /.navbar-header -->
-                <ul class="nav navbar-top-links navbar-right">
-                </ul>
                 <!-- /.navbar-top-links -->
+                
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
@@ -186,6 +169,7 @@
         <script>
             var categoryModule = angular.module('newsApp', []);
             categoryModule.controller('categoryCtrl', ['$scope', function($scope) {
+            	
                     $scope.articles = [
                         {"image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR1WRnc32am6xKOpn5_Fdb6TX4Fz3HoZXMUhW7-s3CGNWIxmVhR", "source": "Reuters", "title": "European shares enjoy best month in over 3 years", "url": 'http://www.reuters.com/article/2015/01/30/markets-stocks-europe-idUSL6N0V94L820150130',
                             "category": "Markets", "region": "Europe", "time": "Jan 30 2015, 12.48PM EST", "description": "PARIS, Jan 30 (Reuters) - European stocks dipped on Friday but posted their best monthly performance in over three years, lifted by hopes the European Central Bank's quantitative easing programme will revive the region's economic growth and corporate earnings will bounce."},
@@ -204,6 +188,7 @@
                 return function(input, filter) {
                     var result = [];
                     var alt = [];
+                    
                     angular.forEach(input, function(article) {
                         if (filter[article.category])
                             result.push(article);
@@ -238,5 +223,21 @@
     
         <!-- Custom Theme JavaScript -->
         <script src="dist/js/sb-admin-2.js"></script>
+        
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-60245828-1', 'auto');
+            ga('send', 'pageview');
+    </script>
     </body>
 </html>
